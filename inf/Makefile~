@@ -1,0 +1,19 @@
+NODEOS := /home/cdmitri/src/github.com/infinitybloc/telos/build/programs/nodeos/nodeos
+
+all:
+	@echo "inf: nothing defined for all"
+
+clean.data:
+	rm -rf ~/.local/share/eosio/nodeos/data
+
+run:
+	$(NODEOS) -e -p eosio \
+		--plugin eosio::producer_plugin \
+		--plugin eosio::wallet_api_plugin \
+		--plugin eosio::chain_plugin \
+	 	--plugin eosio::chain_api_plugin \
+	 	--plugin eosio::http_plugin \
+	 	--plugin eosio::history_plugin \
+	 	--plugin eosio::history_api_plugin \
+	 	--plugin eosio::net_plugin \
+	 	--plugin eosio::net_api_plugin
